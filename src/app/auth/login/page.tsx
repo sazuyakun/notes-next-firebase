@@ -18,8 +18,12 @@ export default function LoginPage() {
     try{
       await login(email, password)
       router.push("/notes")
-    } catch (err: any) {
-      setError(err.message || 'Login Failed')
+    } catch (err: unknown) {
+      if (err instanceof Error) {
+        setError(err.message);
+      } else {
+        setError('Login Failed');
+      }
     } finally {
       setLoading(false)
     }

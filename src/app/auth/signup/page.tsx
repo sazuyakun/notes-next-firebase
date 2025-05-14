@@ -20,8 +20,12 @@ export default function SignupPage(){
     try {
       await signUp(email, password)
       router.push("/notes")
-    } catch (error: any) {
-      setError(error.message || "Failed to SignUp")
+    } catch (err: unknown) {
+      if (err instanceof Error) {
+        setError(err.message);
+      } else {
+        setError('Failed to Sign Up');
+      }
     } finally {
       setLoading(false)
     }
