@@ -36,14 +36,8 @@ export default function NotesPage() {
   const handleAddNote = async (content: string) => {
     // e is of type string (text Area content)
     try {
-      const response = await fetch('/api/notes', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json'},
-        body: JSON.stringify({ uid: user!.uid, content: content })
-      })
-      if(response.ok) {
-        fetchNotes();
-      }
+      await createNote( user!.uid, content )
+      fetchNotes();
     } catch (error) {
       console.error("Error Adding Note: ", error)
     }
