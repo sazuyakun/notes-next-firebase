@@ -51,7 +51,7 @@ export default function NotesPage() {
 
   return (
     <div>
-      <h1 className="text-2xl font-bold mb-4">Your Notes</h1>
+      <h1 className="text-2xl font-bold mb-4">Your Notes: For future reference</h1>
       <NoteForm onAddNote={handleAddNote} />
       <NoteList notes={notes} />
     </div>
