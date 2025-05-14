@@ -46,7 +46,6 @@ export default function NotesPage() {
       }
     } catch (error) {
       console.error("Error Adding Note: ", error)
-      alert('An error occurred while adding the note', error);
     }
   }
 
